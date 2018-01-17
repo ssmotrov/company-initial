@@ -1,0 +1,13 @@
+---
+applications:
+- name: company
+  memory: 1G
+  random-route: true
+  instances: 1
+  path: build/libs/company.jar
+  env:
+    MONGODB_HOST: host.pcfdev.io
+
+  services:
+    - mysql
+    
