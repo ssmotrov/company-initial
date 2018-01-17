@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: company
+  cloud:
+    config:
+      uri: ${vcap.services.config.credentials.url:https://config-server-biforate-aedile.cfapps.io}
+      username: ${vcap.services.config.credentials.username:admin}
+      password: ${vcap.services.config.credentials.password:user}
+
+management:
+  security:
+    enabled: false
+
+security:
+  basic:
+    enabled: false
+      
+---
+
+spring:
+  profiles: cloud
+  
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${vcap.services.eureka.credentials.url:https://admin:user@eureka-server-bowllike-potholer.cfapps.io}/eureka}
+     

@@ -30,7 +30,10 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-data-rest')
 	compile('org.springframework.boot:spring-boot-starter-cloud-connectors')
 	compile('org.springframework.boot:spring-boot-starter-actuator')
+	compile('org.springframework.boot:spring-boot-starter-security')
 	
+	compile('org.springframework.cloud:spring-cloud-starter-eureka:1.2.3.RELEASE')
+	compile('org.springframework.cloud:spring-cloud-starter-config:1.2.3.RELEASE')
 	compile 'org.springframework.cloud:spring-cloud-spring-service-connector:1.2.3.RELEASE'
 	compile 'org.springframework.cloud:spring-cloud-cloudfoundry-connector:1.2.3.RELEASE'
 	

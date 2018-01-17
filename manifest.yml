@@ -9,4 +9,6 @@ applications:
     MONGODB_HOST: host.pcfdev.io
   services:
     - mysql
+    - config
+    - eureka
     

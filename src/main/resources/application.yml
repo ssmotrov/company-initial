@@ -18,3 +18,11 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update
+      
+eureka:
+  instance:
+    statusPageUrlPath: ${management.context-path}/info
+    healthCheckUrlPath: ${management.context-path}/health
+    hostname: ${vcap.application.uris[0]}
+    nonSecurePort: 80    
+    
