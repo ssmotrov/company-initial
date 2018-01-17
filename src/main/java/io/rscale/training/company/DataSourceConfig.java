@@ -1,5 +1,7 @@
 package io.rscale.training.company;
 
+import java.sql.Connection;
+
 import javax.sql.DataSource;
 
 import org.slf4j.Logger;
@@ -9,8 +11,6 @@ import org.springframework.cloud.config.java.AbstractCloudConfig;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
-
-import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
 
 @Profile("cloud")
 @Configuration
@@ -25,6 +25,7 @@ public class DataSourceConfig extends AbstractCloudConfig {
     @Bean
     public DataSource dataSource() throws Exception {
         DataSource dataSource = cloud().getSingletonServiceConnector(DataSource.class, null);
+        logger.info(dataSource.getClass() + " loaded");
         if ( !isMySQL(dataSource)) {
             logger.error("MySQL required when running cloud profile.");
             throw new UnsatisfiedDependencyException("javax.sql.DataSource", "javax.sql.DataSource", "javax.sql.DataSource", "MySQL required when running cloud profile.");
@@ -32,8 +33,10 @@ public class DataSourceConfig extends AbstractCloudConfig {
         return dataSource;
     }
 
-    private boolean isMySQL(DataSource dataSource) {
-    	return MysqlDataSource.class.isAssignableFrom(dataSource.getClass());
+    private boolean isMySQL(DataSource dataSource) throws Exception {
+    	String con = dataSource.getConnection().getMetaData().getDriverName();
+        logger.info(con + " loaded");
+        return con.toLowerCase().contains("mysql");
     }
 
 

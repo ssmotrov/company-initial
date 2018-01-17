@@ -5,4 +5,5 @@
 * Create manifest.yml
 * Add random route, as company route is already taken
 * Add more RAM; 1G
+* Changed appender from file to Console
 * 

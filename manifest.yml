@@ -7,7 +7,6 @@ applications:
   path: build/libs/company.jar
   env:
     MONGODB_HOST: host.pcfdev.io
-
   services:
     - mysql
     

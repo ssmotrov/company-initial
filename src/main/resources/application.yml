@@ -1,0 +1,20 @@
+spring:
+  profiles: local
+  jpa:
+    properties:
+      hibernate:
+        ddl-auto: update
+        dialect: org.hibernate.dialect.MySQL5Dialect
+  datasource:
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://us-cdbr-iron-east-05.cleardb.net/ad_444bb456e0cc596?user=babf3831186b99\u0026password=bec36dea
+    username: babf3831186b99
+    password: bec36dea
+    driver-class-name: com.mysql.jdbc.Driver
+   
+--- 
+spring:
+  profiles: cloud
+  jpa:
+    hibernate:
+      ddl-auto: update
