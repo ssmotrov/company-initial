@@ -1,7 +1,5 @@
 package io.rscale.training.company;
 
-import java.sql.Connection;
-
 import javax.sql.DataSource;
 
 import org.slf4j.Logger;
@@ -22,6 +20,7 @@ public class DataSourceConfig extends AbstractCloudConfig {
         logger.info(this.getClass() + " loaded");
     }
 
+    
     @Bean
     public DataSource dataSource() throws Exception {
         DataSource dataSource = cloud().getSingletonServiceConnector(DataSource.class, null);

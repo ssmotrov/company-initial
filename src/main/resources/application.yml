@@ -1,9 +1,21 @@
 spring:
-  profiles: local
   jpa:
     properties:
       hibernate:
+        show-sql: true
         ddl-auto: update
+
+eureka:
+  client:
+    enabled: false  
+    
+---
+
+spring:
+  profiles: mysql
+  jpa:
+    properties:
+      hibernate:
         dialect: org.hibernate.dialect.MySQL5Dialect
   datasource:
     driverClassName: com.mysql.jdbc.Driver
@@ -12,17 +24,12 @@ spring:
     password: bec36dea
     driver-class-name: com.mysql.jdbc.Driver
    
---- 
+---
+
 spring:
   profiles: cloud
-  jpa:
-    hibernate:
-      ddl-auto: update
-      
+  
 eureka:
-  instance:
-    statusPageUrlPath: ${management.context-path}/info
-    healthCheckUrlPath: ${management.context-path}/health
-    hostname: ${vcap.application.uris[0]}
-    nonSecurePort: 80    
-    
+  client:
+    enabled: true  
+  
