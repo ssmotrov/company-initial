@@ -1,6 +1,6 @@
 buildscript {
 	ext {
-		springBootVersion = '1.5.9.RELEASE'
+		springBootVersion = '1.5.3.RELEASE'
 	}
 	repositories {
 		mavenCentral()
@@ -26,7 +26,7 @@ repositories {
 }
 
 ext {
-	springCloudVersion = 'Edgware.SR1'
+	springCloudVersion = 'Dalston.RELEASE'
 }
 
 dependencies {
@@ -40,6 +40,7 @@ dependencies {
 	compile('org.springframework.cloud:spring-cloud-starter-config')
 	compile 'org.springframework.cloud:spring-cloud-spring-service-connector'
 	compile 'org.springframework.cloud:spring-cloud-cloudfoundry-connector'
+	compile "org.springframework.cloud:spring-cloud-starter-zipkin"
 	
 	compile('mysql:mysql-connector-java')
 	compile("com.h2database:h2")
